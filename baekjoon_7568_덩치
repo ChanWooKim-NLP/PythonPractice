@@ -1,0 +1,16 @@
+# 몸무게와 키를 브루드포스로 랭크계산
+
+a = int(input())
+student = [] # 몸무게와 키를 하나의 세트로 묶어서 담음
+
+for i in range(a): # 입력
+    t, w = map(int, input().split()) #몸무게, 키를 나눔
+    student.append((t, w)) #세트를 추가
+    
+for j in student: #j는 자기 자신, k는 비교할 대상
+    rank = 1 #순위를 매기기 위한 함수, 자기 자신에 대한 순위이므로 1차 for문안에 넣어주어야 함
+    for k in student: #비교 대상
+        if j[0] < k[0] and j[1] < k[1]: #[0]은 몸무게, [1]은 키
+            rank += 1 #키, 몸무게 자신보다 작을 경우 자기 자신의 랭크를 낮춤
+            
+    print(rank, end=' ') #공백구분 필수, 각각에 대한 등수이므로 1차 for문 내부
