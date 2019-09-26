@@ -41,3 +41,5 @@ class Rectangle:
             else:
                 return False
             
+            #직사각형 넓이에 대한 토론이 많이 오갔으나 결국 한 점은 고정되어 있으므로 그 점과의 넓이를 구하면 
+            
