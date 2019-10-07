@@ -23,5 +23,7 @@ class Point:
     def distance_from_origin(self):
         return (self.x**2 + self.y**2)**0.5
     
-    def distance_from_point(self):
+    def distance_from_point(self, x1, y1):
+        self.x1 = x1
+        self.y1 = y1
         return ((self.x-self.x1)**2 + (self.y-self.y1)**2)**0.5
