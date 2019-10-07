@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Sep 26 22:10:50 2019
-
-@author: Kim Chanwoo
-"""
-
 class Rectangle:
     def __init__(self, x1, y1, x2, y2):
         self.x1 = x1
@@ -26,20 +19,18 @@ class Rectangle:
         else:
             return (self.x1, self.y1)
             return (self.x2, self.y2)
-            return Rectangle.area()
+            return abs(self.x1-self.x2)*abs(self.y1-self.y2)
         
     def equal(self, x3, y3):
         self.x3 = x3
         self.y3 = y3
-        if (x3 == self.x1 or self.x2) and (y3 == self.y1 or self.y2):
+        if (x3 == self.x1 or x3 == self.x2) and (y3 == self.y1 or y3 == self.y2):
             return True
         else:
-            if abs(x3-self.x1)*abs(y3-self.y1) == Rectangle.area():
+            if abs(x3-self.x1)*abs(y3-self.y1) == abs(self.x1-self.x2)*abs(self.y1-self.y2):
                 return True
-            elif abs(x3-self.x2)*abs(y3-self.y2) == Rectangle.area():
+            elif abs(x3-self.x2)*abs(y3-self.y2) == abs(self.x1-self.x2)*abs(self.y1-self.y2):
                 return True
             else:
                 return False
-            
-            #직사각형 넓이에 대한 토론이 많이 오갔으나 결국 한 점은 고정되어 있으므로 그 점과의 넓이를 구하면 
             
