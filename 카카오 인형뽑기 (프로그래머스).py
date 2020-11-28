@@ -32,7 +32,7 @@ def solution(board, moves):
                         basket.append(doll)
     return result
 
-
+## 두번째 풀이
 def solution2(board, moves):
     stacklist = []
     answer = 0
