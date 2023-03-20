@@ -25,18 +25,16 @@ top_dict = {
     3 : 2
 }
 
-# 윗 면이 1, 동쪽을 바라보는 방향이 3
-result = []
-
 # 범위 내 확인
 def in_range(x, y):
     return 0 <= x < n and 0 <= y < m
 
+# 이동 방향, 인덱스 별로 동서북남
 dxs, dys = [0, 0, -1, 1], [1, -1, 0, 0]
 
 # 명령의 수 만큼 이동 수행
 for idx in range(k):
-    # 이동할 방향
+    # 이동할 방향 인덱스
     direction = order[idx] - 1
     nx, ny = x + dxs[direction], y + dys[direction]
     
