@@ -40,20 +40,6 @@ def bfs_air(x, y, not_go=1):
                 visited[nx][ny] = -1
                 queue.append((nx, ny))
 
-# 치즈 탐색
-def bfs_cheese(x, y, not_go=0):
-    queue = deque([(x, y)])
-    visited[x][y] = 1
-    
-    while queue:
-        x, y = queue.popleft()
-        
-        for dx, dy in zip(dxs, dys):
-            nx, ny = x + dx, y + dy
-            
-            if can_go(nx, ny, not_go):
-                visited[nx][ny] = 1
-                queue.append((nx, ny))
 
 time = 0
 while True:
@@ -68,11 +54,10 @@ while True:
     # 외부 공기 탐색
     bfs_air(0, 0, 1)
 
-    # 가장자리 제외, 치즈 영역 탐색
-    for i in range(1, n-1):
-        for j in range(1, m-1):
+    for i in range(n):
+        for j in range(m):
             if arr[i][j] == 1:
-                bfs_cheese(i, j, 0)
+                visited[i][j] = 1
     
     # visited 배열에 기록한 외부 공기와 치즈 여부로 인접한 외부 공기 수 계산
     for i in range(1, n-1):
