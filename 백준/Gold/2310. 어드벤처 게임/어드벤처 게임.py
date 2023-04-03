@@ -39,7 +39,7 @@ def bfs(target_idx):
         dq_idx = int(dq_idx)
         next_room = maze[dq_idx]
         
-        # queue에는 탐색 후보 방 -> can_enter 메소드를 통해 들어갈 수 있는지 확인
+        # queue에는 탐색 후보 방 -> can_enter 를 통해 들어갈 수 있는지 확인
         if can_enter(next_room) and not visited[dq_idx]:
             # 들어갈 수 있는 방 + 목적지 -> True
             if dq_idx == target_idx:
