@@ -36,7 +36,7 @@ def rotate(start_x, start_y, rng, arr, r, c, s):
     rotate(start_x-1, start_y-1, rng+1, arr, r, c, s)
     return
 
-# 배열의 최소값 구하는 메소드
+# 배열의 최소값 구하는 함수
 def calcul_min_arr(arr):
     global ans
     for i in range(len(arr)):
@@ -54,7 +54,7 @@ original_arr = [
     for _ in range(n)
 ]
 
-# 회전 순서를 정하는 백트래킹 메소드
+# 회전 순서를 정하는 백트래킹 함수
 order = []
 visited = [0] * k
 order_comb = []
