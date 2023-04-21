@@ -46,11 +46,6 @@ for i in range(r):
 def in_range(x, y):
     return 0 <= x < r and 0 <= y < c
 
-visited = [
-    [0] * c
-    for _ in range(r)
-]
-
 def find_cut_corr(start):
     x, y = start
     move = -1
@@ -68,8 +63,6 @@ def find_cut_corr(start):
         if arr[x][y] == '.':
             return x, y, move
         
-        # 가스 방문 배열에 1 추가
-        visited[x][y] += 1
         # 현재 위치 x와 y의 파이프 종류 탐색, 1~4 중 하나라면 방향 전환
         if arr[x][y] == '1': move = pipe_1(move)
         elif arr[x][y] == '2': move = pipe_2(move)
