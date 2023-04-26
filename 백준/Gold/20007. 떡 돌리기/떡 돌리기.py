@@ -1,5 +1,8 @@
+import sys
 import heapq
 from collections import defaultdict
+
+input = sys.stdin.readline
 
 n, m, x, y = map(int, input().split())
 
@@ -33,23 +36,22 @@ while heap:
         
 
 # 가장 가까운 마을 순으로 역순 정렬
-visited.sort(reverse=True)
+visited.sort()
 
-days = 1
+if visited[-1] * 2 > x:
+    print(-1)
 
-# 하루에 지금까지 간 거리
-dist_per_day = 0
-while visited:
-    if visited[-1] > x // 2:
-        days = -1
-        break
+else:
+    days = 1
+    # 하루에 지금까지 간 거리
+    dist_per_day = 0
+
+    for i in range(1, n):
+        if (dist_per_day + visited[i]) * 2 <= x:
+            dist_per_day += visited[i]
+            
+        else:
+            days += 1
+            dist_per_day = visited[i]
     
-    # 지금까지 간 거리가 편도 거리보다 길다면 다음 날에 감
-    if dist_per_day + visited[-1] > x // 2:
-        days += 1
-        dist_per_day = 0
-        continue
-        
-    dist_per_day += visited.pop()
-    
-print(days)
+    print(days)
