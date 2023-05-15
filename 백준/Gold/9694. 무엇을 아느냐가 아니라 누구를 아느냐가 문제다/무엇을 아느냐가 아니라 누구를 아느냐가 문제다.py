@@ -1,5 +1,8 @@
+import sys
 import heapq
 from collections import defaultdict
+
+input = sys.stdin.readline
 
 t = int(input())
 
