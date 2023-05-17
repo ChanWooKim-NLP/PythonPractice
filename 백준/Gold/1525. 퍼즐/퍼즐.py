@@ -1,5 +1,4 @@
 from collections import defaultdict, deque
-from copy import deepcopy
 
 arr = [
     list(map(int, input().split()))
@@ -57,9 +56,9 @@ def bfs():
             if not (0 <= nx < 3 and 0 <= ny < 3):
                 continue
 
-            new_arr = deepcopy(cur_arr)
+            new_arr = [row[:] for row in cur_arr]
             new_arr[x][y], new_arr[nx][ny] = new_arr[nx][ny], new_arr[x][y]
-            
+                        
             hashable_arr = to_hashable(new_arr)
             
             if not visited[hashable_arr]:
