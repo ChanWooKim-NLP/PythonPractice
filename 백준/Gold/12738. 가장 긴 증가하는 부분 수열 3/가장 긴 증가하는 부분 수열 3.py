@@ -1,22 +1,7 @@
 import sys
+import bisect
 
 input = sys.stdin.readline
-
-def binary_search(arr, target):
-    left, right = 0, len(arr) - 1
-    result = -1
-    
-    while left <= right:
-        mid = (left + right) // 2
-        
-        if arr[mid] < target:
-            left = mid + 1
-            
-        else:
-            result = mid
-            right = mid - 1
-            
-    return result
 
 n = int(input())
 
@@ -28,7 +13,7 @@ for num in arr:
         dp.append(num)
         
     else:
-        idx = binary_search(dp, num)
+        idx = bisect.bisect_left(dp, num)
         dp[idx] = num
         
 print(len(dp))
