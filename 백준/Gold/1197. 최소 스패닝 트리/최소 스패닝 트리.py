@@ -1,4 +1,5 @@
 import sys
+sys.setrecursionlimit(1000000)
 
 input = sys.stdin.readline
 
@@ -16,10 +17,10 @@ for _ in range(e):
 edges.sort(key=lambda x: x[2])
 
 def find(parent, x):
-    if parent[x] == x:
-        return x
+    if parent[x] != x:
+        parent[x] = find(parent, parent[x])
     
-    return find(parent, parent[x])
+    return parent[x]
 
 def union(parent, a, b):
     parent_a = find(parent, a)
@@ -31,9 +32,7 @@ def union(parent, a, b):
         
     else:
         parent[parent_b] = parent_a
-       
 
-# 정답
 ans = 0
 
 for ed in edges:
